@@ -14,4 +14,9 @@
   </ion-header>
 
   <app-explore-container name="Tab 2 page"></app-explore-container>
+
+  <!-- Display the data here -->
+  <div *ngFor="let item of data | keyvalue">
+    {{item.key}}: {{item.value}}
+  </div>
 </ion-content>
