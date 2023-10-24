@@ -1,8 +1,8 @@
 ion-content {
-    --background: url('../../assets/img/kidImage.jpg') no-repeat center center fixed;
+    --background: url('../../assets/img/babyJourney.png') no-repeat center center fixed;
     background-size: cover;
-    padding-bottom: 50px;
-}
+    
+} 
 
 h1,
 h2,
@@ -17,12 +17,10 @@ h3 {
     ion-item{
         margin: 2px;
         border-radius: 20px;
-        background-color: #d6eef8;
         border: 1px solid rgba(0, 0, 0, 0.200);
     }
 
     background-color: whitesmoke;
-    color: black;
     border-radius: 30px;
     position: absolute;
     bottom: 0;
@@ -31,6 +29,5 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 0, 0, 0.200);
 }
 
