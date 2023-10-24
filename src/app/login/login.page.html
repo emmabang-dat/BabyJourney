@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login!</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <h1 style="display: flex; flex-direction: column; align-items: center;
+  margin-top: 40%;">
+  Baby Journey
+  </h1> 
+
+ <div class="login-box">
+  
+    <h2>Login</h2>
+    <br>
+
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="E-mail"></ion-input>
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="lock-closed"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Password"></ion-input>
+    </ion-item>
+
+    <a style="margin-left: 25%; margin-top: 2%;">Forgot Your Password?</a>
+    <br>
+    <br>
+
+    <ion-button>Login</ion-button>
+    <br>
+    <br>
+    <br>
+    
+    
+  </div>
 </ion-content>
