@@ -36,7 +36,7 @@ export class SignupPage implements OnInit {
         this.presentToast("You created a profile! ${user}");
 
         //TODO: Navigate to homepage
-        
+
       })
       .catch((error) => {
         const errorCode = error.code;
