@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { ToastController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +12,7 @@ export class SignupPage implements OnInit {
   email!: string;
   password!: string;
 
-  constructor(public toastController: ToastController) { }
+  constructor(public toastController: ToastController, private navCtrl: NavController) { }
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -33,7 +33,9 @@ export class SignupPage implements OnInit {
         // Signed up 
         const user = userCredential.user;
         console.log("New user created:", user);
-        this.presentToast("You created a profile! ${user}");
+        this.presentToast("You created a user! Thanks for joining :)").then(() => {
+          this.navCtrl.navigateForward('/tabs/tab1');
+        });
 
         //TODO: Navigate to homepage
 
@@ -42,7 +44,7 @@ export class SignupPage implements OnInit {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("Error creating new user:", errorMessage);
-        this.presentToast("Something went wrong ${errorMessage}");
+        this.presentToast("Something went wrong: Password should be atleast 6 characters.");
       });
   }
 

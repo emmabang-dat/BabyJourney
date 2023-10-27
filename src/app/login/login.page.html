@@ -25,7 +25,33 @@
       <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
     </ion-item>
 
-    <a style="margin-left: 25%; margin-top: 2%;">Forgot Your Password?</a>
+    <a id="open-modal" expand="block" style="margin-left: 25%; margin-top: 2%;">Forgot Your Password?</a>
+    <p>{{ message }}</p>
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Cancel</ion-button>
+            </ion-buttons>
+            <ion-title>Forgot Your Password?</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <div class="ion-padding center-text">
+          <p>Hello,</p>
+
+          <p>Click this link to reset your Baby Journey password for your account.</p> 
+
+          <a href="https://babyjourney-ab9bb.firebaseapp.com/__/auth/action?mode=action&oobCode=code">https://babyjourney-ab9bb.firebaseapp.com/__/auth/action?mode=action&oobCode=code</a>
+
+          <p>If you didn’t ask to reset your password, you can ignore this email.</p>
+
+          <p>Thanks,</p>
+
+          <p>Your Baby Journey team</p>
+        </div>
+      </ng-template>
+    </ion-modal>
     <br>
     <br>
 

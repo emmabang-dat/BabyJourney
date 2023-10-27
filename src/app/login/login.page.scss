@@ -43,6 +43,7 @@ h3 {
         --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.729);
         width: 60%;
     }
+
     background-color: whitesmoke;
     border-radius: 30px;
     position: absolute;
@@ -53,5 +54,16 @@ h3 {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.289);
+}
+
+//for links
+a:hover {
+    text-decoration: underline !important;
+}
+
+
+.center-text{
+    text-align: center;
+    margin-bottom: 30vh;
 }
 
