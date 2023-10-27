@@ -1,0 +1,31 @@
+.item-container {
+    display: flex;
+    margin: 5px 0;
+    align-items: center;
+  }
+  
+  .key {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .value {
+    font-style: italic;
+  }
+  
+  .page-container {
+    border: 10px solid #000; /* Tilføj den ønskede farve og bredd til grænsen */
+    padding: 20px; /* Tilføj den ønskede indvendige polstring (margin) efter behov */
+    box-sizing: border-box; /* Sørg for, at bredden af grænsen inkluderes i den samlede bredde */
+    position: relative; /* Tilføj relativ position til containeren */
+  }
+  
+  .header-image {
+    text-align: center; /* Centrer billedet */
+    position: absolute; /* Tilføj absolut position til billedet */
+    top: -20px; /* Tilpas den ønskede øverste margin her */
+    left: 50%; /* Centrer billedet vandret */
+    transform: translateX(-50%); /* Centrer billedet vandret korrekt */
+    z-index: 1; /* Sørg for, at billedet er øverst */
+  }
+  

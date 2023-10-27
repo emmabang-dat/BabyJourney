@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Timeline </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="page-container">
+  <!-- Billede i toppen -->
+  <div class="header-image">
+    <img src="assets/timeline/Konrad.jpg" alt="Konrad's Image">
+  </div>
+  
+  <div *ngFor="let item of data | keyvalue">{{item.key}}: {{item.value}}</div>
+</div>
