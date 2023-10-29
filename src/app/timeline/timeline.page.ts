@@ -7,15 +7,39 @@ import { FirestoreService } from '../../services/database';
   styleUrls: ['./timeline.page.scss'],
 })
 export class TimelinePage implements OnInit {
-
   data: any;
-
+  imageUrl: string[] = [];
   constructor(private firestoreService: FirestoreService) {}
 
   ngOnInit() {
     this.firestoreService.fetchData().then((data) => {
-      this.data = data;
-      console.log(this.data);
+      if (data) {
+        this.data = data.slice(0, 4);
+        this.data.forEach((item: any) => {
+          item.Description = this.truncateText(item.Description, 80);
+          this.imageUrl.push(item['PhotoURL']);
+        });
+      }
     });
   }
+
+  //Antal charaters i description-card
+  truncateText(text: string, maxLength: number): string {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+  }
+
+  addData(newData: any) {
+    if (new Date(newData.Date).getTime() > new Date(this.data[-1].Date).getTime()) {
+      this.data.unshift(newData);
+      if (this.data.length > 4) {
+        this.data.pop(); 
+      }
+    }
+  }
+
+// Logik for fab button
+  addNewEvent() {
+    console.log('FAB clicked!');
+  }
+
 }

@@ -1,31 +1,126 @@
-.item-container {
-    display: flex;
-    margin: 5px 0;
-    align-items: center;
+.page-container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  .header {
+    position: relative;
+
+    ion-img {
+      margin-top: 2rem;
+      display: block;
+      border-radius: 10px !important;
+      overflow: hidden;
+    }
+
+    ion-label {
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+    }
   }
-  
-  .key {
-    font-weight: bold;
-    margin-right: 5px;
+
+  .timeline {
+    position: relative;
+    bottom: -1rem;
+    margin: 2rem 0;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 479px;
+      background-color: #87ceeb;
+      top: 0;
+      left: 50%;
+      margin-left: -1px;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      margin-bottom: 50px;
+      z-index: 2;
+
+      .date-box {
+        left: calc(50% - (104px / 2));
+        position: absolute;
+        width: 104px;
+        height: 30px;
+        flex-shrink: 0;
+        background-color: #87ceeb;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        color: white;
+        font-weight: 400;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        z-index: 3;
+      }
+
+      .item-content {
+        display: flex;
+        justify-content: space-between;
+        width: calc(159px + 120px + 70px);
+        position: relative;
+        top: 40px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 50px;
+          background-color: #87ceeb;
+          top: 50%;
+          left: 46.5%;
+          z-index: 1;
+        }
+
+        .description-card {
+          width: 155px;
+          height: 67px;
+          flex-shrink: 0;
+          border-radius: 10px;
+          background: #fff;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+          .description-text {
+            width: 150px;
+            color: #000;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 10px;
+          }
+        }
+
+        .photo {
+          position: absolute;
+          width: 120px;
+          height: 67px;
+          flex-shrink: 0;
+          right: calc(50% - (120px + 104px + 70px) / 2);
+          border-radius: 10px !important;
+          overflow: hidden;
+          z-index: 2;
+        }
+      }
+    }
+
+    ion-fab {
+      position: absolute;
+      bottom: -110px;
+      right: calc(50% - (56px / 2));
+      z-index: 3;
+    }
+
+    ion-fab-button {
+      --background: #87ceeb;
+      --color: white;
+    }
   }
-  
-  .value {
-    font-style: italic;
-  }
-  
-  .page-container {
-    border: 10px solid #000; /* Tilføj den ønskede farve og bredd til grænsen */
-    padding: 20px; /* Tilføj den ønskede indvendige polstring (margin) efter behov */
-    box-sizing: border-box; /* Sørg for, at bredden af grænsen inkluderes i den samlede bredde */
-    position: relative; /* Tilføj relativ position til containeren */
-  }
-  
-  .header-image {
-    text-align: center; /* Centrer billedet */
-    position: absolute; /* Tilføj absolut position til billedet */
-    top: -20px; /* Tilpas den ønskede øverste margin her */
-    left: 50%; /* Centrer billedet vandret */
-    transform: translateX(-50%); /* Centrer billedet vandret korrekt */
-    z-index: 1; /* Sørg for, at billedet er øverst */
-  }
-  
+}
