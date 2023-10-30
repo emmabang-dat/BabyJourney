@@ -1,7 +1,9 @@
 ion-content {
-    --background: url('../../assets/img/babyJourney.png') no-repeat center center fixed;
+    --background: none;
+    background-image: url('../../assets/img/babyJourney.png');
+    background-position: top center;
+    background-repeat: no-repeat;
     background-size: cover;
-    
 } 
 
 h1,
@@ -13,11 +15,22 @@ h3 {
 .login-box {
     ion-input {
         width: 70%;
+        height: 10%;
+        transition: all 0.5s ease-in-out;
     }
-    ion-item{
-        margin: 2px;
-        border-radius: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.200);
+    
+    ion-item {
+        border-radius: 10px;
+        --background: rgba(135, 206, 235, 0.35);
+        border: 1px solid rgba(0, 0, 0, 0.389);
+        width: 80%;
+        height: 10%;
+    }
+    
+    ion-item:focus-within ion-input {
+        // font-size: 125%;
+        // padding-top: 5px;
+        margin: 5%;
     }
 
     background-color: whitesmoke;
@@ -29,5 +42,6 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.289);
 }
 
