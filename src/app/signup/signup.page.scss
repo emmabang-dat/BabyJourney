@@ -32,17 +32,7 @@ h3 {
         // padding-top: 5px;
         margin: 5%;
     }
-    
-    ion-item:focus-within ion-input::-webkit-input-placeholder {
-        color: transparent;
-    }
 
-    ion-button{
-        border-radius: 10px;
-        --background: #87CEEB;
-        --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.729);
-        width: 60%;
-    }
     background-color: whitesmoke;
     border-radius: 30px;
     position: absolute;

@@ -1,0 +1,29 @@
+ 
+.outlined-input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding-bottom: 20px; 
+  border-radius: 5px; 
+  height: 100px;
+  background-color: #87CEEB;
+}
+  
+ion-modal {
+  padding: 20px;
+  max-height: 100vh; 
+}
+  
+.img_baby{
+  border-radius: 20px;
+}
+
+.header-md{
+  box-shadow: none;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.justify-content-end{
+  justify-content: end;
+}

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalOverviewPage } from '../modal/modal-overview/modal-overview.page';
-//import { ModalOverviewPage } from '../modal/modal-overview/modal-overview.page';
 
 @Component({
   selector: 'app-tab3',
@@ -9,15 +8,9 @@ import { ModalOverviewPage } from '../modal/modal-overview/modal-overview.page';
   styleUrls: ['./tab3.page.scss']
 })
 export class Tab3Page {
-  constructor(public modalController: ModalController) {}
+  isModalOpen = false;
 
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: ModalOverviewPage,
-      componentProps: {
-        // Her kan du tilføje eventuelle data, som du vil sende til modalen
-      },
-    });
-    return await modal.present();
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 }
