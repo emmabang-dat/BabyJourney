@@ -8,20 +8,25 @@
     </div>
 
     <div class="timeline">
-      <div
-        class="timeline-item"
-        *ngFor="let item of data.slice().reverse(); let i = index"
-        [style.bottom.px]="i * -120"
-      >
-        <div class="date-box">{{item.Date}}</div>
-        <div class="item-content">
-          <div class="description-card">
-            <div class="description-text">{{item.Description}}</div>
+      <div class="scroll-container" (scroll)="onScroll($event)">
+        <div
+          class="timeline-item"
+          *ngFor="let item of data.slice().reverse(); let i = index"
+          [style.bottom.px]="i * -120"
+          [ngClass]="{'reverse-layout': i % 2 === 1}"
+        >
+          <div class="scrolling-content">
+            <div class="date-box">{{item.Date}}</div>
+            <div class="item-content">
+              <div class="description-card">
+                <div class="description-text">{{item.Description}}</div>
+              </div>
+              <img class="photo" [src]="item.PhotoURL" alt="photo" />
+            </div>
           </div>
-          <img class="photo" [src]="item.PhotoURL" alt="photo" />
         </div>
       </div>
-
+      
       <ion-fab vertical="bottom" horizontal="end">
         <ion-fab-button (click)="addNewEvent()">
           <ion-icon name="add"></ion-icon>

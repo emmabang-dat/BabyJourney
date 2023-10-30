@@ -27,13 +27,12 @@
   .timeline {
     position: relative;
     bottom: -1rem;
-    margin: 2rem 0;
 
     &:after {
       content: "";
       position: absolute;
       width: 2px;
-      height: 479px;
+      height: 500px;
       background-color: #87ceeb;
       top: 0;
       left: 50%;
@@ -66,7 +65,6 @@
       .item-content {
         display: flex;
         justify-content: space-between;
-        width: calc(159px + 120px + 70px);
         position: relative;
         top: 40px;
 
@@ -74,46 +72,55 @@
           content: "";
           position: absolute;
           height: 2px;
-          width: 50px;
+          width: 100px;
           background-color: #87ceeb;
           top: 50%;
-          left: 46.5%;
+          left: 30%;
           z-index: 1;
         }
 
         .description-card {
-          width: 155px;
-          height: 67px;
+          width: 130px;
+          height: 75px;
           flex-shrink: 0;
           border-radius: 10px;
           background: #fff;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          z-index: 2;
 
           .description-text {
-            width: 150px;
+            width: 125px;
+            height: 65px;
             color: #000;
             font-size: 12px;
             font-weight: 400;
             padding: 10px;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
-
         .photo {
-          position: absolute;
-          width: 120px;
-          height: 67px;
+          width: 130px;
+          height: 75px;
           flex-shrink: 0;
-          right: calc(50% - (120px + 104px + 70px) / 2);
+          right: calc(50% - (130px + 104px + 75px) / 2);
           border-radius: 10px !important;
           overflow: hidden;
           z-index: 2;
+          object-fit: cover;
         }
       }
     }
 
+    .timeline-item.reverse-layout .item-content {
+      flex-direction: row-reverse;
+    }
+
     ion-fab {
       position: absolute;
-      bottom: -110px;
+      bottom: -100px;
       right: calc(50% - (56px / 2));
       z-index: 3;
     }
@@ -122,5 +129,120 @@
       --background: #87ceeb;
       --color: white;
     }
+  }
+}
+
+.timeline {
+  position: relative;
+  bottom: -1rem;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 500px;
+    background-color: #87ceeb;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    z-index: 1;
+  }
+
+  .scroll-container {
+    max-height: 500px;
+    overflow-y: auto;
+
+    .timeline-item {
+      margin-bottom: 50px;
+      z-index: 2;
+
+      .date-box {
+        left: calc(50% - (104px / 2));
+        position: absolute;
+        width: 104px;
+        height: 30px;
+        flex-shrink: 0;
+        background-color: #87ceeb;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        color: white;
+        font-weight: 400;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        z-index: 3;
+      }
+
+      .item-content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 40px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 100px;
+          background-color: #87ceeb;
+          top: 50%;
+          left: 30%;
+          z-index: 1;
+        }
+
+        .description-card {
+          width: 130px;
+          height: 75px;
+          flex-shrink: 0;
+          border-radius: 10px;
+          background: #fff;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          z-index: 2;
+
+          .description-text {
+            width: 125px;
+            height: 65px;
+            color: #000;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 10px;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+          }
+        }
+        .photo {
+          width: 130px;
+          height: 75px;
+          flex-shrink: 0;
+          right: calc(50% - (130px + 104px + 75px) / 2);
+          border-radius: 10px !important;
+          overflow: hidden;
+          z-index: 2;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .scrolling-content {
+    position: relative;
+  }
+  .timeline-item.reverse-layout .item-content {
+    flex-direction: row-reverse;
+  }
+
+  ion-fab {
+    position: absolute;
+    bottom: -50px !important;
+    right: calc(50% - (56px / 2));
+    z-index: 3;
+  }
+
+  ion-fab-button {
+    --background: #87ceeb;
+    --color: white;
   }
 }

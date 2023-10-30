@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
+import { collection, getDocs, query, orderBy, startAfter, limit } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import { Storage, ref, getDownloadURL } from '@angular/fire/storage';
+import { getFirestore } from 'firebase/firestore';
 import { environment } from '../environments/environment';
-import { collection, getDocs } from 'firebase/firestore';
-import { query, orderBy } from 'firebase/firestore';
 
 const app = initializeApp(environment.firebase);
 const db = getFirestore(app);
@@ -35,5 +33,15 @@ export class FirestoreService {
       .catch((error) => {
         console.log('Error getting documents:', error);
       });
+  }
+
+  getNextData(lastDoc: any) {
+    let q = query(
+      collection(db, 'Konrad'),
+      orderBy('Date', 'desc'),
+      startAfter(lastDoc),
+      limit(4)
+    );
+    return getDocs(q);
   }
 }
