@@ -20,10 +20,8 @@ ion-modal {
   box-shadow: none;
 }
 
-.d-flex{
+.container{
   display: flex;
-}
-
-.justify-content-end{
+  align-items: center;
   justify-content: end;
 }

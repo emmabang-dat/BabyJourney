@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { ModalOverviewPage } from '../modal/modal-overview/modal-overview.page';
 
 @Component({
   selector: 'app-tab3',

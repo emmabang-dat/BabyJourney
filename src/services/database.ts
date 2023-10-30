@@ -1,37 +1,39 @@
 import { Injectable } from '@angular/core';
-import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore"; 
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { Storage, ref, getDownloadURL } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { collection, getDocs } from 'firebase/firestore';
+import { query, orderBy } from 'firebase/firestore';
 
-// Initialiser Firebase
 const app = initializeApp(environment.firebase);
-
-// Få en reference til Firestore-databasen
 const db = getFirestore(app);
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirestoreService {
-
-  constructor() { }
+  constructor() {}
 
   fetchData() {
-    // Get a reference to the document
-    const docRef = doc(db, "Konrad", "caaUsGfff7dG2fY4hKwd");
+    const q = query(collection(db, 'Konrad'), orderBy('Date', 'desc'));
 
-    // Fetch the document
-    return getDoc(docRef).then((doc) => {
-      if (doc.exists()) {
-        console.log("Document data:", doc.data());
-        return doc.data();
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-        return null;
-      }
-    }).catch((error) => {
-      console.log("Error getting document:", error);
-    });
+    return getDocs(q)
+      .then((querySnapshot) => {
+        const data: any[] = [];
+        querySnapshot.forEach((doc) => {
+          const docData = doc.data();
+          if (docData) {
+            docData['Date'] = new Date(
+              docData['Date'].seconds * 1000
+            ).toLocaleDateString('da-DK');
+            data.push(docData);
+          }
+        });
+        return data;
+      })
+      .catch((error) => {
+        console.log('Error getting documents:', error);
+      });
   }
 }
