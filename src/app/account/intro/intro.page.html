@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+<div class="center">
+  <h1>Welcome to Baby Journey</h1>
+  <h3>Explore Us</h3>
+</div>
+  
+  <ion-grid>
+
+    <!-- row 1 -->
+    <ion-row>
+      <ion-img class="banner" src="../../../assets/img/Front Photo.png" alt="Photo"></ion-img>
+      <ion-col> </ion-col>
+      <ion-col size="8">
+
+        <br>
+        <ion-button routerLink="/login">Login</ion-button>
+        <br>
+        <p class="center" routerLink="/signup">Sign Up</p>
+        <br>
+        <img class="centerimg" src="../../../assets/icon/_Or_ option.svg">
+        <br>
+        <br>
+        <div style="display: flex; justify-content: center;">
+        <ion-img (click)="facebookLogin()" class="alternative" src="../../../assets/icon/Facebook Button.png" alt="facebook"></ion-img> <ion-img (click)="googleLogin()" class="alternative" src="../../../assets/icon/Google Button.png" alt="google"></ion-img>
+        </div>
+         
+       
+      </ion-col>
+      <ion-col></ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

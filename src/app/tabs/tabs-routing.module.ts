@@ -20,12 +20,16 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'intro',
+        loadChildren: () => import('../account/intro/intro.module').then(m => m.IntroPageModule)
+      },
+      {
         path: 'login',
-        loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
+        loadChildren: () => import('../account/login/login.module').then(m => m.LoginPageModule)
       },
       {
         path: 'signup',
-        loadChildren: () => import('../signup/signup.module').then(m => m.SignupPageModule)
+        loadChildren: () => import('../account/signup/signup.module').then(m => m.SignupPageModule)
       },
       {
         path: '',
