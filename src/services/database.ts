@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { collection, getDocs, query, orderBy, startAfter, limit } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, startAfter, limit, addDoc } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from '../environments/environment';
 
 const app = initializeApp(environment.firebase);
-const db = getFirestore(app);
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreService {
+  db = getFirestore(app); // Gør db til en offentlig egenskab
+
   constructor() {}
 
   fetchData() {
-    const q = query(collection(db, 'Konrad'), orderBy('Date', 'desc'));
+    const q = query(collection(this.db, 'Konrad'), orderBy('Date', 'desc'));
 
     return getDocs(q)
       .then((querySnapshot) => {
@@ -37,11 +38,22 @@ export class FirestoreService {
 
   getNextData(lastDoc: any) {
     let q = query(
-      collection(db, 'Konrad'),
+      collection(this.db, 'Konrad'),
       orderBy('Date', 'desc'),
       startAfter(lastDoc),
       limit(4)
     );
     return getDocs(q);
+  }
+
+  async addData(data: any) { // Tilføj denne metode
+    try {
+      const docRef = await addDoc(collection(this.db, 'Konrad'), data);
+      console.log('Document written with ID: ', docRef.id);
+      return docRef.id;
+    } catch (e) {
+      console.error('Error adding document: ', e);
+      return null;
+    }
   }
 }
