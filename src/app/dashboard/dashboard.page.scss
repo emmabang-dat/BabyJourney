@@ -5,6 +5,22 @@
     box-shadow: none;
 }
 
+.card-1:hover {
+    cursor: pointer;
+  }
+  .card-2:hover {
+    cursor: pointer;
+  }
+  .card-3:hover {
+    cursor: pointer;
+  }
+  .card-4:hover {
+    cursor: pointer;
+  }
+  .card-5:hover {
+    cursor: pointer;
+  }
+
 .card-2 {
     border-radius: 12px;
     background: linear-gradient(164deg, rgba(177, 222, 82, 0.25) 11.37%, rgba(129, 171, 39, 0.25) 116.13%);
