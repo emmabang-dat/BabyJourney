@@ -1,4 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {
+  Auth,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +19,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
-  constructor() { }
 
+  constructor(private router: Router, private auth: Auth) { }
+  username = this.auth.currentUser?.email;
+
+    openTimeline(){
+      this.router.navigate(['/timeline'])
+    }
+    
+    openModal(){
+      this.router.navigate(['/modal-add'])
+    }
+    
+    
   ngOnInit() {
   }
-
 }
+
+
