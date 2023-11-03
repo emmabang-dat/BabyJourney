@@ -32,6 +32,11 @@ export class TimelinePage implements OnInit {
       this.cdRef.detectChanges();
       this.scrollToBottom();
     });
+
+    this.firestoreService.fetchDataRealtime((data) => {
+      this.data = data;
+      this.cdRef.detectChanges();
+    });
   }
 
   scrollToBottom() {

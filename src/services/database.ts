@@ -3,6 +3,7 @@ import { collection, getDocs, query, orderBy, startAfter, limit, addDoc } from '
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from '../environments/environment';
+import { onSnapshot } from 'firebase/firestore';
 
 const app = initializeApp(environment.firebase);
 
@@ -10,7 +11,7 @@ const app = initializeApp(environment.firebase);
   providedIn: 'root',
 })
 export class FirestoreService {
-  db = getFirestore(app); // Gør db til en offentlig egenskab
+  db = getFirestore(app);
 
   constructor() {}
 
@@ -46,7 +47,7 @@ export class FirestoreService {
     return getDocs(q);
   }
 
-  async addData(data: any) { // Tilføj denne metode
+  async addData(data: any) {
     try {
       const docRef = await addDoc(collection(this.db, 'Konrad'), data);
       console.log('Document written with ID: ', docRef.id);
@@ -55,5 +56,25 @@ export class FirestoreService {
       console.error('Error adding document: ', e);
       return null;
     }
+  }
+
+  fetchDataRealtime(callback: (data: any[]) => void) {
+    const q = query(collection(this.db, 'Konrad'), orderBy('Date', 'desc'));
+    
+    return onSnapshot(q, (querySnapshot) => {
+      const data: any[] = [];
+      querySnapshot.forEach((doc) => {
+        const docData = doc.data();
+        if (docData) {
+          docData['Date'] = new Date(
+            docData['Date'].seconds * 1000
+          ).toLocaleDateString('da-DK');
+          data.push(docData);
+        }
+      });
+      callback(data);
+    }, (error) => {
+      console.log('Error getting documents:', error);
+    });
   }
 }

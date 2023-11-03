@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ModalController, PopoverController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DatetimePopoverComponent } from 'src/app/datetime-popover/datetime-popover.component';
-import { addDoc, collection } from 'firebase/firestore';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import { FirestoreService } from 'src/services/database';
 
 @Component({
@@ -68,7 +68,7 @@ export class ModalAddPage implements OnInit {
 
   async save() {
     const data = {
-      Date: this.selectedDate,
+      Date: Timestamp.fromDate(new Date(this.selectedDate)),
       Description: this.description,
       PhotoURL: this.imageUrl,
     };
