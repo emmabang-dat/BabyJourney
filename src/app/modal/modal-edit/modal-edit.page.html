@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <ion-icon
+      name="close"
+      slot="end"
+      class="close-icon"
+      (click)="closeModal()"
+    ></ion-icon>
+
+    <div class="photo-card">
+      <ion-icon
+        name="pencil"
+        class="pencil-icon"
+        (click)="editPhoto()"
+      ></ion-icon>
+      <div class="photo-card" *ngIf="isEditingPhoto">
+        <ion-icon
+          name="camera"
+          class="icon top"
+          (click)="openCamera()"
+        ></ion-icon>
+        <span class="divider">/</span>
+        <ion-icon
+          name="images"
+          class="icon bottom"
+          (click)="openGallery()"
+        ></ion-icon>
+      </div>
+      <img [src]="imageUrl" *ngIf="!isEditingPhoto" class="photo-card" />
+    </div>
+
+    <div class="label-margin">
+      <ion-label> Date </ion-label>
+    </div>
+    <div class="date-card">
+      <p class="date">{{ selectedDate | date:'dd.MM.yyyy' }}</p>
+      <ion-icon
+        name="calendar-number"
+        class="calendar-icon"
+        (click)="presentPopover($event)"
+      ></ion-icon>
+    </div>
+
+    <ng-template #popoverContent>
+      <app-datetime-popover></app-datetime-popover>
+    </ng-template>
+
+    <div class="label-margin">
+      <ion-label>Description</ion-label>
+    </div>
+    <div class="description-card">
+      <ion-textarea
+        [(ngModel)]="description"
+        rows="6"
+        maxlength="250"
+      ></ion-textarea>
+    </div>
+
+    <ion-icon
+      name="trash"
+      class="trash-icon"
+      (click)="confirmDelete()"
+    ></ion-icon>
+
+    <ion-button (click)="save()">Save</ion-button>
+  </div>
+</ion-content>

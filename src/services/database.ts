@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
-import { collection, getDocs, query, orderBy, startAfter, limit, addDoc } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  startAfter,
+  limit,
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  getFirestore,
+} from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 import { environment } from '../environments/environment';
-import { onSnapshot } from 'firebase/firestore';
 
 const app = initializeApp(environment.firebase);
 
@@ -27,6 +38,7 @@ export class FirestoreService {
             docData['Date'] = new Date(
               docData['Date'].seconds * 1000
             ).toLocaleDateString('da-DK');
+            docData['id'] = doc.id;
             data.push(docData);
           }
         });
@@ -60,21 +72,44 @@ export class FirestoreService {
 
   fetchDataRealtime(callback: (data: any[]) => void) {
     const q = query(collection(this.db, 'Konrad'), orderBy('Date', 'desc'));
-    
-    return onSnapshot(q, (querySnapshot) => {
-      const data: any[] = [];
-      querySnapshot.forEach((doc) => {
-        const docData = doc.data();
-        if (docData) {
-          docData['Date'] = new Date(
-            docData['Date'].seconds * 1000
-          ).toLocaleDateString('da-DK');
-          data.push(docData);
-        }
-      });
-      callback(data);
-    }, (error) => {
-      console.log('Error getting documents:', error);
-    });
+
+    return onSnapshot(
+      q,
+      (querySnapshot) => {
+        const data: any[] = [];
+        querySnapshot.forEach((doc) => {
+          const docData = doc.data();
+          if (docData) {
+            docData['Date'] = new Date(
+              docData['Date'].seconds * 1000
+            ).toLocaleDateString('da-DK');
+            docData['id'] = doc.id;
+            data.push(docData);
+          }
+        });
+        callback(data);
+      },
+      (error) => {
+        console.log('Error getting documents:', error);
+      }
+    );
+  }
+
+  async deleteData(docId: string) {
+    try {
+      await deleteDoc(doc(this.db, 'Konrad', docId));
+      console.log('Document deleted with ID: ', docId);
+    } catch (e) {
+      console.error('Error deleting document: ', e);
+    }
+  }
+
+  async updateData(docId: string, data: any) {
+    try {
+      await updateDoc(doc(this.db, 'Konrad', docId), data);
+      console.log('Document updated with ID: ', docId);
+    } catch (e) {
+      console.error('Error updating document: ', e);
+    }
   }
 }

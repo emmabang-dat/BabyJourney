@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FirestoreService } from '../../services/database';
 import { ModalAddPage } from '../modal/modal-add/modal-add.page';
 import { ModalController } from '@ionic/angular';
+import { OverviewPage } from '../modal/overview/overview.page';
 
 @Component({
   selector: 'app-timeline',
@@ -85,6 +86,18 @@ export class TimelinePage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalAddPage,
       cssClass : 'my-modal',
+    });
+
+    await modal.present();
+  }
+
+  async openOverview(item: any){
+    const modal = await this.modalController.create({
+      component: OverviewPage,
+      cssClass : 'my-modal',  componentProps: { 
+        item: item,
+        docId: item.id 
+      }
     });
 
     await modal.present();

@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalAddPageRoutingModule } from './modal-add-routing.module';
+import { ModalEditPageRoutingModule } from './modal-edit-routing.module';
 
-import { ModalAddPage } from './modal-add.page';
+import { ModalEditPage } from './modal-edit.page';
 import { SharedModule } from 'src/app/shared.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ModalAddPageRoutingModule,
+    ModalEditPageRoutingModule,
     SharedModule
   ],
-  declarations: [ModalAddPage]
+  declarations: [ModalEditPage]
 })
-export class ModalAddPageModule {}
+export class ModalEditPageModule {}

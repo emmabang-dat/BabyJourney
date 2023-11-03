@@ -24,6 +24,14 @@ const routes: Routes = [
   },  {
     path: 'modal-add',
     loadChildren: () => import('./modal/modal-add/modal-add.module').then( m => m.ModalAddPageModule)
+  },
+  {
+    path: 'overview',
+    loadChildren: () => import('./modal/overview/overview.module').then( m => m.OverviewPageModule)
+  },
+  {
+    path: 'modal-edit',
+    loadChildren: () => import('./modal/modal-edit/modal-edit.module').then( m => m.ModalEditPageModule)
   }
 
 
