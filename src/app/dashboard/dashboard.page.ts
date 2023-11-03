@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {
+  Auth,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from '@angular/fire/auth';
 
 
 @Component({
@@ -10,11 +19,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardPage implements OnInit {
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private auth: Auth) { }
+  username = this.auth.currentUser?.email;
+
     openTimeline(){
       this.router.navigate(['/timeline'])
     }
     
+    openModal(){
+      this.router.navigate(['/modal-add'])
+    }
     
     
   ngOnInit() {

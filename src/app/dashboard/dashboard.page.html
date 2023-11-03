@@ -6,7 +6,7 @@
   <ion-row>
     <ion-col class="col-left">
       <ion-label>
-        <h1 class="firstLabel">Hej Sigurd,</h1>
+        <h1 *ngIf="username" class="firstLabel">Hej {{username}},</h1>
       </ion-label>      
     </ion-col>
 
@@ -42,7 +42,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card class="card-3">
+      <ion-card class="card-3" (click)="openModal()">
         <ion-card-header>
           <img src="/assets/icon/camera.svg" alt="Costum icon" style="width: 34px">
           <ion-card-title>Kamera</ion-card-title>
@@ -69,7 +69,7 @@
     </ion-col>
 
     <ion-col class="col-gap-r">
-      <ion-card class="card-2">
+      <ion-card class="card-2" (click)="openTimeline()">
         <ion-card-header>
           <img src="/assets/icon/images.svg" alt="Costum icon" style="width: 34px">
           <ion-card-title>Billeder</ion-card-title>
