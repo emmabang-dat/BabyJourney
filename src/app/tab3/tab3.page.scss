@@ -1,8 +1,10 @@
  
+
+
 .outlined-input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding-bottom: 20px; 
-  border-radius: 5px; 
+  border-radius: 10px; 
   height: 100px;
   background-color: #87CEEB;
 }
@@ -10,18 +12,118 @@
 ion-modal {
   padding: 20px;
   max-height: 100vh; 
+  --height: 70%;
+  --border-radius: 16px;  
 }
-  
+
+ion-modal ion-toolbar{
+  --background: none;
+  --border-width: 0;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: -55px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.mt-1{
+  margin-top: 10px;
+}
+
+.mb-5{
+  margin-bottom: 350px;
+}
+
+.icon-delete{
+  margin-left: 20px;
+  margin-right: 5px;
+  background: white!important;
+  color: red;
+  font-size: 24px;
+}
+
+.icon-create{
+  margin-left: 20px;
+  margin-right: 5px;
+  background: white!important;
+  color:#2888ae;
+  font-size: 24px;
+}
+
+.cal-icon{
+  margin-left: 160px;
+  font-size: 24px;
+  color: #232729;
+}
+
+.inputarea{
+  display: flex;
+  align-items: center;
+}
+
+.text-mb{
+  margin-bottom: -10px;
+  margin-left: 5px;
+}
+
+.save-btn{
+  background: #2888ae;
+  font-size: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.des-area{
+  border-radius: 15px;
+  background-color: rgba(135, 206, 235, 0.35)!important;
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+ion-input {
+  border-radius: 15px;
+  --background: rgba(135, 206, 235, 0.35)!important;
+  width: 100%;
+  height: auto;
+  padding-right: 25px;
+}
+
+.p-end-start{
+  --padding-start: var(--ion-padding, 26px);
+  --padding-end: var(--ion-padding, 26px);
+  --padding-top: var(--ion-padding, 0px!important);
+  --padding-bottom: var(--ion-padding, 0px!important);
+}
+
 .img_baby{
-  border-radius: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header-md{
   box-shadow: none;
 }
 
-.container{
+.btn-container{
   display: flex;
   align-items: center;
   justify-content: end;
 }
+

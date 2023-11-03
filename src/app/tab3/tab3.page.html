@@ -1,36 +1,93 @@
 <ion-content class="">
-  <ion-button expand="block" (click)="setOpen(true)">Open</ion-button>
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
+  <ion-button expand="block" (click)="setOpen1(true)">Modal</ion-button>
+  <ion-modal [isOpen]="isModalOpen1">
+    <ng-template class="ion-page">
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)"><ion-icon style="font-size: 24px;" name="close-outline"></ion-icon></ion-button>
+            <ion-button (click)="setOpen1(false)"><ion-icon style="font-size: 24px;" name="close-outline"></ion-icon></ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <img class="img_baby ion-padding" src="https://picsum.photos/id/29/400/450" alt="barnPic">
-      </ion-content>
+      <div class="mb-5">
+        <div class="image-container">
+          <img class="img_baby" style="margin-top: 5px;" src="https://picsum.photos/id/29/300/140" alt="Billede af barn"> 
+          
+        </div> 
 
-      <div>
-
-      </div>
-      
-
-      <ion-content class="ion-padding">
-        
-
-        
-        <div class="container">
-          <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
-          <ion-button><ion-icon name="checkbox-outline"></ion-icon></ion-button>
+        <div class="" style="margin-top: -70px; padding-left: 20px; padding-right: 20px;">
+          <p class="ion-text-start text-mb">Date</p>
+          <div class="inputarea">
+            <p class="des-area">27 maj 2023
+            <ion-icon class="cal-icon" name="calendar-number"></ion-icon>
+            </p>
+          </div>
+                    
         </div>
-       
-      </ion-content>
-      
-     
-      
+
+        <div class="mt-1" style="padding-left: 20px; padding-right: 20px;">
+          <p class="ion-text-start text-mb">Description</p>
+          <p class="des-area">Konrads første billede</p>
+        </div>
+
+        <div>
+          <button class="icon-delete"><ion-icon name="trash-outline"></ion-icon></button>
+          <button class="icon-create"><ion-icon name="create"></ion-icon></button>
+        </div>
+                 
+      </div>
+    
     </ng-template>
   </ion-modal>
 </ion-content>
+
+<ion-content class="">
+  <ion-button expand="block" (click)="setOpen2(true)">Modal - rediger</ion-button>
+  <ion-modal [isOpen]="isModalOpen2">
+    <ng-template class="ion-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen2(false)"><ion-icon style="font-size: 24px;" name="close-outline"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <div class="mb-5">
+        <div class="image-container">
+          <img class="img_baby" style="margin-top: 5px;" src="https://picsum.photos/id/29/300/140" alt="Billede af barn"> 
+          
+        </div> 
+
+        <div class="" style="margin-top: -70px; padding-left: 20px; padding-right: 20px;">
+          <p class="ion-text-start text-mb">Date</p>
+          <div class="inputarea">
+            <p class="des-area">27 maj 2023
+            <ion-icon class="cal-icon" name="calendar-number"></ion-icon>
+            </p>
+          </div>
+                    
+        </div>
+
+        <div class="mt-1" style="padding-left: 20px; padding-right: 20px;">
+          <p class="ion-text-start text-mb">Description</p>
+          <p class="des-area">Konrads første billede</p>
+        </div>
+
+        <div class="ion-justify-content-between" style="display: flex; align-items: center;">
+          <div>
+            <button class="icon-delete"><ion-icon name="trash-outline"></ion-icon></button>
+            <button class="icon-create"><ion-icon name="create"></ion-icon></button>
+          </div>
+          <div>
+            <button class="save-btn">Save</button>
+          </div>
+          
+        </div>
+                 
+      </div>
+    
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+

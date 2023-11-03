@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./tab3.page.scss']
 })
 export class Tab3Page {
-  isModalOpen = false;
+  isModalOpen1 = false;
+  isModalOpen2 = false;
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  setOpen1(isOpen: boolean) {
+    this.isModalOpen1 = isOpen;
+  }
+
+  setOpen2(isOpen: boolean) {
+    this.isModalOpen2 = isOpen;
   }
 }
