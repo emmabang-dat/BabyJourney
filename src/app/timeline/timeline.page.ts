@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FirestoreService } from '../../services/database';
 
 @Component({
@@ -9,37 +9,69 @@ import { FirestoreService } from '../../services/database';
 export class TimelinePage implements OnInit {
   data: any;
   imageUrl: string[] = [];
-  constructor(private firestoreService: FirestoreService) {}
+  lastDoc: any;
+  constructor(private firestoreService: FirestoreService, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.firestoreService.fetchData().then((data) => {
       if (data) {
-        this.data = data.slice(0, 4);
+        this.data = data;
         this.data.forEach((item: any) => {
-          item.Description = this.truncateText(item.Description, 80);
           this.imageUrl.push(item['PhotoURL']);
         });
       }
+      if (this.data.length < 4) {
+        this.loadMoreItems();
+      }
+      this.cdRef.detectChanges();
+      this.scrollToBottom();
     });
   }
 
-  //Antal charaters i description-card
-  truncateText(text: string, maxLength: number): string {
-    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+  scrollToBottom() {
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (scrollContainer) {
+      scrollContainer.scrollTop = scrollContainer.scrollHeight;
+    }
+  }
+
+  loadMoreItems() {
+    this.firestoreService.getNextData(this.lastDoc).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const docData = doc.data();
+        if (docData) {
+          docData['Date'] = new Date(
+            docData['Date'].seconds * 1000
+          ).toLocaleDateString('da-DK');
+          this.data.push(docData);
+        }
+      });
+      this.lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
+    });
+  }
+
+  onScroll(event: any) {
+    if (
+      event.target.offsetHeight + event.target.scrollTop >=
+      event.target.scrollHeight
+    ) {
+      this.loadMoreItems();
+    }
   }
 
   addData(newData: any) {
-    if (new Date(newData.Date).getTime() > new Date(this.data[-1].Date).getTime()) {
+    if (
+      new Date(newData.Date).getTime() > new Date(this.data[-1].Date).getTime()
+    ) {
       this.data.unshift(newData);
       if (this.data.length > 4) {
-        this.data.pop(); 
+        this.data.pop();
       }
     }
   }
 
-// Logik for fab button
+  // Logik for fab button
   addNewEvent() {
     console.log('FAB clicked!');
   }
-
 }

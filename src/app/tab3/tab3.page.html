@@ -1,17 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="">
+  <ion-button expand="block" (click)="setOpen(true)">Open</ion-button>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)"><ion-icon style="font-size: 24px;" name="close-outline"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <img class="img_baby ion-padding" src="https://picsum.photos/id/29/400/450" alt="barnPic">
+      </ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      </div>
+      
+
+      <ion-content class="ion-padding">
+        
+
+        
+        <div class="container">
+          <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+          <ion-button><ion-icon name="checkbox-outline"></ion-icon></ion-button>
+        </div>
+       
+      </ion-content>
+      
+     
+      
+    </ng-template>
+  </ion-modal>
 </ion-content>
