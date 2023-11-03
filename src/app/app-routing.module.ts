@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ToastService } from '../services/toast.service';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
   canActivate,
 } from '@angular/fire/auth-guard';
 
+
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['intro']);
-const redirectLoggedInToTabs = () => redirectLoggedInTo(['tabs']);
+
+const redirectLoggedInToTabs = () =>  redirectLoggedInTo(['tabs']);
 
 const routes: Routes = [
   {
     path: '',
 
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    // ...canActivate(redirectUnauthorizedToLogin)
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'login',
     loadChildren: () => import('./account/login/login.module').then( m => m.LoginPageModule),
-    // ...canActivate(redirectLoggedInToTabs)
+    ...canActivate(redirectLoggedInToTabs)
   },
   {
     path: 'signup',
@@ -28,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./account/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./account/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule),
+    
   },
   {
     path: 'forgot-password-modal',

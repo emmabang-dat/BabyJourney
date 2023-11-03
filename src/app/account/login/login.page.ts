@@ -14,8 +14,8 @@ import { AuthenticationService } from 'src/services/authentication.service';
 
 export class LoginPage {
   credentials: FormGroup | any;
-  // email!: string;
-  // password!: string;
+  email!: string;
+  password!: string;
   message!: string;
 
   constructor(
@@ -24,19 +24,20 @@ export class LoginPage {
     private authService: AuthenticationService,
     private alertController: AlertController,
     private router: Router,
+    private navCtrl: NavController,
     private loadingController: LoadingController,
     ) { }
 
     ngOnInit() {
       this.validators();
      }
-     get email() {
-      return this.credentials?.get('email');
-    }
+    //  get email() {
+    //   return this.credentials?.get('email');
+    // }
   
-    get password() {
-      return this.credentials?.get('password');
-    }
+    // get password() {
+    //   return this.credentials?.get('password');
+    // }
   
     validators() {
       this.credentials = this.fb.group({
@@ -54,26 +55,6 @@ export class LoginPage {
     toast.present();
   }
 
-  // login() {
-  //   const auth = getAuth();
-
-  //   signInWithEmailAndPassword(auth, this.email, this.password)
-  //     .then((userCredential) => {
-  //       // Signed in 
-  //       const user = userCredential.user;
-  //       console.log("User logged in:", user);
-  //       this.presentToast("User logged in successfully!").then(() => {
-  //         this.navCtrl.navigateForward('/tabs/tab1');
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       console.log("Error logging in:", errorMessage);
-  //       this.presentToast("Error logging in. Please try again.");
-  //     });
-  // }
-
   async login() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -83,6 +64,7 @@ export class LoginPage {
         await loading.dismiss();
         // this.router.navigateByUrl('tabs', { replaceUrl: true });
         this.router.navigateByUrl('tabs/tab1');
+        this.presentToast('');
       },
       async (err: any) => {
         await loading.dismiss();
@@ -92,12 +74,14 @@ export class LoginPage {
           buttons: ['OK'],
         });
   
-        await alert.present();
+        await this.presentToast('Login Failed, something went wrong:\n' + alert.present());
       }
     );
   }
 
-  
+  // forgotPassword() {
+  //   this.router.navigate(['/forgot-password'])
+  // }
 
   
 

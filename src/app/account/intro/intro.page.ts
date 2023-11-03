@@ -30,7 +30,7 @@ export class IntroPage implements OnInit {
         this.router.navigateByUrl('tabs', { replaceUrl: true });
       },
       async (err: any) => {
-        await loading.dismiss();
+        loading.dismiss();
         const alert = await this.alertController.create({
           header: 'Login failed',
           message: err.message,
@@ -52,7 +52,8 @@ export class IntroPage implements OnInit {
         this.router.navigateByUrl('tabs', { replaceUrl: true });
       },
       async (err: any) => {
-        await loading.dismiss();
+        // await loading.dismiss();
+        loading.dismiss();
         const alert = await this.alertController.create({
           header: 'Login failed',
           message: err.message,
@@ -62,6 +63,10 @@ export class IntroPage implements OnInit {
         await alert.present();
       }
     );
+  }
+
+  toLogin(){
+    this.router.navigate(['/login'])
   }
 
 }

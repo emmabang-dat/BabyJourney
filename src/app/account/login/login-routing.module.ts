@@ -12,11 +12,11 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('../forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
-  {
-    path: 'signup',
-    loadChildren: () => import('../signup/signup-routing.module').then( m => m.SignupPageRoutingModule)
+  // {
+  //   path: 'signup',
+  //   loadChildren: () => import('../signup/signup-routing.module').then( m => m.SignupPageRoutingModule)
 
-  },
+  // },
 ];
 
 @NgModule({

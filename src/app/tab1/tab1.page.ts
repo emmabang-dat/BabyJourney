@@ -17,7 +17,7 @@ export class Tab1Page {
 
   async logout() {
     await this.authService.logout();
-    this.navCtrl.navigateBack('/login');
+    this.navCtrl.navigateBack('/intro');
   }
 
 }

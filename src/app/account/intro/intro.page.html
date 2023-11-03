@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-<div class="center">
+<div class="center" style="margin-bottom: 20%;">
   <h1>Welcome to Baby Journey</h1>
   <h3>Explore Us</h3>
 </div>
@@ -13,9 +13,13 @@
       <ion-col size="8">
 
         <br>
+        <div class="options">
+          <!-- <ion-button (click)="toLogin()">Login</ion-button> -->
         <ion-button routerLink="/login">Login</ion-button>
         <br>
         <p class="center" routerLink="/signup">Sign Up</p>
+        
+        
         <br>
         <img class="centerimg" src="../../../assets/icon/_Or_ option.svg">
         <br>
@@ -24,7 +28,7 @@
         <ion-img (click)="facebookLogin()" class="alternative" src="../../../assets/icon/Facebook Button.png" alt="facebook"></ion-img> <ion-img (click)="googleLogin()" class="alternative" src="../../../assets/icon/Google Button.png" alt="google"></ion-img>
         </div>
          
-       
+       </div>
       </ion-col>
       <ion-col></ion-col>
 
