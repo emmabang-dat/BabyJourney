@@ -1,0 +1,99 @@
+.card-1 {
+    border-radius: 12px;
+    background: linear-gradient(160deg, rgba(105, 183, 222, 0.25) 13.46%, rgba(46, 31, 175, 0.25) 108.12%);
+    color: black;
+    box-shadow: none;
+}
+
+.card-2 {
+    border-radius: 12px;
+    background: linear-gradient(164deg, rgba(177, 222, 82, 0.25) 11.37%, rgba(129, 171, 39, 0.25) 116.13%);
+    color: black;
+    box-shadow: none;
+}
+
+.card-3 {
+    border-radius: 12px;
+    background: linear-gradient(164deg, rgba(255, 154, 190, 0.25) 11.01%, rgba(193, 221, 195, 0.25) 102.9%);
+    color: black;
+    box-shadow: none;
+}
+
+.card-4 {
+    border-radius: 12px;
+    background: linear-gradient(206deg, rgba(243, 196, 31, 0.25) 16.46%, rgba(248, 140, 41, 0.25) 122.02%);
+    color: black;
+    box-shadow: none;
+}
+
+.card-5 {
+    border-radius: 12px;
+    background: linear-gradient(164deg, rgba(251, 255, 43, 0.25) 11.01%, rgba(193, 221, 195, 0.25) 102.9%);
+    color: black;
+    box-shadow: none;
+}
+
+.card-6 {
+    border-radius: 12px;
+    background: linear-gradient(206deg, rgba(243, 31, 31, 0.25) 16.46%, rgba(248, 140, 41, 0.25) 122.02%);
+    color: black;
+    box-shadow: none;
+}
+
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    margin-right: 12px;
+    
+}
+
+.col-left {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.firstLabel {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.secondLabel {
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 4px;
+}
+
+.subLabel {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-left: 2px;
+}
+
+.grid-1 {
+    padding-bottom: 0;
+    padding-top: 18px;
+}
+
+.col-gap-l {
+    padding-left: 2px;
+    padding-right: 0px;
+}
+
+.col-gap-r {
+    padding-right: 2px;
+    padding-left: 0px;
+}
