@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { ModalController, PopoverController, ToastController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DatetimePopoverComponent } from 'src/app/datetime-popover/datetime-popover.component';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
@@ -18,7 +18,8 @@ export class ModalAddPage implements OnInit {
   constructor(
     private modalController: ModalController,
     public popoverController: PopoverController,
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private toastController: ToastController
   ) {}
 
   closeModal() {
@@ -76,12 +77,27 @@ export class ModalAddPage implements OnInit {
     try {
       const docRef = await addDoc(collection(this.firestoreService.db, 'Konrad'), data);
       console.log('Document written with ID: ', docRef.id);
+      // Tilføj din toaster her for succes
+      const toast = await this.toastController.create({
+        message: 'New memory added successfully',
+        duration: 2000,
+        color: 'success'
+      });
+      toast.present();
     } catch (e) {
       console.error('Error adding document: ', e);
+      // Tilføj din toaster her for fejl
+      const toast = await this.toastController.create({
+        message: 'Something went wrong',
+        duration: 2000,
+        color: 'danger'
+      });
+      toast.present();
     }
   
     this.modalController.dismiss();
   }
+  
 
   ngOnInit() {}
 }

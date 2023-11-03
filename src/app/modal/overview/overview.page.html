@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <ion-icon
+      name="close"
+      slot="end"
+      class="close-icon"
+      (click)="closeModal()"
+    ></ion-icon>
+    <div class="photo-card">
+      <img class="photo" [src]="item.PhotoURL" alt="photo" class="photo-card" />
+    </div>
+
+    <div class="label-margin">
+      <ion-label> Date </ion-label>
+    </div>
+    <div class="date-card">
+      <div class="date">{{item.Date}}</div>
+      <ion-icon name="calendar-number" class="calendar-icon"></ion-icon>
+    </div>
+
+    <div class="label-margin">
+      <ion-label> Description </ion-label>
+    </div>
+    <div class="description-card">
+      <ion-textarea rows="6" maxlength="250" class="description-text"
+        >{{item.Description}}</ion-textarea
+      >
+    </div>
+
+    <ion-icon name="trash" class="trash-icon" (click)="confirmDelete()"></ion-icon>
+    <ion-icon name="create" class="edit-icon" (click)="edit()"></ion-icon>
+  </div>
+</ion-content>

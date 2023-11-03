@@ -1,0 +1,104 @@
+.page-container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  .close-icon {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+  }
+
+  .photo-card {
+    width: 262px;
+    height: 139px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(135, 206, 235, 0.35);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    object-fit: cover;
+  }
+
+  .icon {
+    font-size: 37px;
+    width: 47px;
+    color: #5a5a5a;
+  }
+
+  .label-margin {
+    margin-top: 1rem;
+  }
+
+  ion-label {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .date-card {
+    width: 264px;
+    height: 37px;
+    color: #87ceeb;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(135, 206, 235, 0.35);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+  }
+
+  .date {
+    font-size: 12px;
+    font-weight: 200;
+    color: black;
+    margin-left: 1rem;
+    margin-right: 6rem;
+  }
+
+  .calendar-icon {
+    font-size: 25px;
+    color: #5a5a5a;
+    margin-right: 1rem;
+  }
+
+  .description-card {
+    width: 264px;
+    height: 114px;
+    color: #87ceeb;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(135, 206, 235, 0.35);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+
+    ion-textarea {
+      font-size: 12px;
+      color: black;
+      margin-left: 1rem;
+      margin-top: 3rem;
+    }
+  }
+
+  .trash-icon {
+    color: #C0392B;
+    margin-top: 2rem;
+    font-size: 20px;
+    margin-right: 1rem;
+  }
+
+  .edit-icon {
+    color: #2980B9;
+    margin-top: 2rem;
+    font-size: 20px;
+    margin-right: 1rem;
+  }
+}
