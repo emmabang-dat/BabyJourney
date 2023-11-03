@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <ion-icon
+      name="close"
+      slot="end"
+      class="close-icon"
+      (click)="closeModal()"
+    ></ion-icon>
+    <div class="photo-card">
+      <div class="photo-card" *ngIf="!imageUrl">
+        <ion-icon
+          name="camera"
+          class="icon top"
+          (click)="openCamera()"
+        ></ion-icon>
+        <span class="divider">/</span>
+        <ion-icon
+          name="images"
+          class="icon bottom"
+          (click)="openGallery()"
+        ></ion-icon>
+      </div>
+      
+      <img [src]="imageUrl" *ngIf="imageUrl" class="photo-card"/>
+    </div>
+
+    <div class="label-margin">
+      <ion-label> Date </ion-label>
+    </div>
+    <div class="date-card">
+      <p class="date-placeholder">{{ selectedDate | date:'dd MMMM yyyy' }}</p>
+      <ion-icon
+        name="calendar-number"
+        class="calendar-icon"
+        (click)="presentPopover($event)"
+      ></ion-icon>
+    </div>
+
+    <ng-template #popoverContent>
+      <app-datetime-popover></app-datetime-popover>
+    </ng-template>
+
+    <div class="label-margin">
+      <ion-label>Description</ion-label>
+    </div>
+    <div class="description-card">
+      <ion-textarea
+        [(ngModel)]="description"
+        placeholder="Write your description here..."
+        rows="6"
+        maxlength="250"
+      ></ion-textarea>
+    </div>
+
+    <ion-button (click)="save()">Save</ion-button>
+  </div>
+</ion-content>

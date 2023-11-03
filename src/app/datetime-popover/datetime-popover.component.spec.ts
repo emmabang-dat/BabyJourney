@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ModalOverviewComponent } from './modal-overview.component';
+import { DatetimePopoverComponent } from './datetime-popover.component';
 
-describe('ModalOverviewComponent', () => {
-  let component: ModalOverviewComponent;
-  let fixture: ComponentFixture<ModalOverviewComponent>;
+describe('DatetimePopoverComponent', () => {
+  let component: DatetimePopoverComponent;
+  let fixture: ComponentFixture<DatetimePopoverComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalOverviewComponent ],
+      declarations: [ DatetimePopoverComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ModalOverviewComponent);
+    fixture = TestBed.createComponent(DatetimePopoverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

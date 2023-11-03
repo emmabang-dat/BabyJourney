@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FirestoreService } from '../../services/database';
+import { ModalAddPage } from '../modal/modal-add/modal-add.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-timeline',
@@ -10,7 +12,11 @@ export class TimelinePage implements OnInit {
   data: any;
   imageUrl: string[] = [];
   lastDoc: any;
-  constructor(private firestoreService: FirestoreService, private cdRef: ChangeDetectorRef) {}
+  constructor(
+    private firestoreService: FirestoreService,
+    private cdRef: ChangeDetectorRef,
+    private modalController: ModalController
+  ) {}
 
   ngOnInit() {
     this.firestoreService.fetchData().then((data) => {
@@ -25,6 +31,11 @@ export class TimelinePage implements OnInit {
       }
       this.cdRef.detectChanges();
       this.scrollToBottom();
+    });
+
+    this.firestoreService.fetchDataRealtime((data) => {
+      this.data = data;
+      this.cdRef.detectChanges();
     });
   }
 
@@ -70,8 +81,12 @@ export class TimelinePage implements OnInit {
     }
   }
 
-  // Logik for fab button
-  addNewEvent() {
-    console.log('FAB clicked!');
+  async addNewEvent() {
+    const modal = await this.modalController.create({
+      component: ModalAddPage,
+      cssClass : 'my-modal',
+    });
+
+    await modal.present();
   }
 }
