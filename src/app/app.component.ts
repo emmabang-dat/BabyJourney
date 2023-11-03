@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastService } from '../services/toast.service';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,8 @@ import { ToastService } from '../services/toast.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
 
-
+  constructor() {
+    defineCustomElements(window);
+  }
 }

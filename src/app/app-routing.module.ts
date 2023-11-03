@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ToastService } from '../services/toast.service';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
@@ -49,7 +48,13 @@ const routes: Routes = [
   {
     path: 'modal-overview',
     loadChildren: () => import('./modal/modal-overview/modal-overview.module').then( m => m.ModalOverviewPageModule)
+  },
+  {
+    path: 'modal-add',
+    loadChildren: () => import('./modal/modal-add/modal-add.module').then( m => m.ModalAddPageModule)
+
   }
+
 
 ];
 @NgModule({
