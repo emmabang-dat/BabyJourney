@@ -3,6 +3,8 @@
     <ion-title>
       Home Page
     </ion-title>
+    <!-- Should only be visable, if user is logged in. -->
+    <ion-nav-link *ngIf="uid" (click)="logout()">Logout</ion-nav-link>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +14,8 @@
       <ion-title size="large">Home Page</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  
 
   <img src="https://picsum.photos/400/600" alt="Random Pic">
 

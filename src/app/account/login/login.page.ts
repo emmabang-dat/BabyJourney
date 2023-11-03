@@ -81,7 +81,8 @@ export class LoginPage {
     this.authService.login(this.credentials.value).then(
       async (res: any) => {
         await loading.dismiss();
-        this.router.navigateByUrl('tabs', { replaceUrl: true });
+        // this.router.navigateByUrl('tabs', { replaceUrl: true });
+        this.router.navigateByUrl('tabs/tab1');
       },
       async (err: any) => {
         await loading.dismiss();

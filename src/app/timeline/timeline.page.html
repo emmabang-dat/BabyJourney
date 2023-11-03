@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <div class="header">
+      <div *ngIf="imageUrl && imageUrl.length > 0">
+        <ion-img [src]="imageUrl[0]" alt="Billede"></ion-img>
+      </div>
+      <ion-label>Konrad</ion-label>
+    </div>
+
+    <div class="timeline">
+      <div
+        class="timeline-item"
+        *ngFor="let item of data.slice().reverse(); let i = index"
+        [style.bottom.px]="i * -120"
+      >
+        <div class="date-box">{{item.Date}}</div>
+        <div class="item-content">
+          <div class="description-card">
+            <div class="description-text">{{item.Description}}</div>
+          </div>
+          <img class="photo" [src]="item.PhotoURL" alt="photo" />
+        </div>
+      </div>
+
+      <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="addNewEvent()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </div>
+</ion-content>

@@ -18,6 +18,8 @@ import { getFirestore } from '@angular/fire/firestore';
 export class AuthenticationService {
   constructor(private auth: Auth) {}
 
+  uid = this.auth.currentUser?.uid;
+  
   async signup({
     name,
     email,
@@ -82,6 +84,7 @@ export class AuthenticationService {
     }
   }
 
+  //TODO: make it work.
   async facebookLogin() {
     try {
       const provider = new FacebookAuthProvider();

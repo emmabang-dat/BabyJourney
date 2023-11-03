@@ -6,22 +6,24 @@ import {
   canActivate,
 } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['intro']);
 const redirectLoggedInToTabs = () => redirectLoggedInTo(['tabs']);
 
 const routes: Routes = [
   {
     path: '',
+
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    // ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'login',
     loadChildren: () => import('./account/login/login.module').then( m => m.LoginPageModule),
-    ...canActivate(redirectLoggedInToTabs)
+    // ...canActivate(redirectLoggedInToTabs)
   },
   {
     path: 'signup',
+
     loadChildren: () => import('./account/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
@@ -35,9 +37,11 @@ const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./account/intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
+    path: 'timeline',
+    loadChildren: () => import('./timeline/timeline.module').then( m => m.TimelinePageModule)
   }
-
-
 
 ];
 @NgModule({

@@ -14,11 +14,11 @@
       <ion-label>
         <ion-icon name="mail"></ion-icon>
       </ion-label>
-      <ion-input type="email" required="true" clearInput="true" placeholder="E-mail" formControlName="email"></ion-input>
+      <ion-input type="email" required="true" clearinput="true" placeholder="E-mail" formcontrolname="email"></ion-input>
     </ion-item>
     <div class="error">
-      <span *ngIf="email.errors?.email && email.touched">Invalid email</span>
-      <span *ngIf="email.errors?.required && email.touched">Email is required</span>
+      <span *ngif="email.errors?.email && email.touched">Invalid email</span>
+      <span *ngif="email.errors?.required && email.touched">Email is required</span>
     </div>
 
     <br>
@@ -28,19 +28,20 @@
       <ion-label>
         <ion-icon name="lock-closed"></ion-icon>
       </ion-label>
-      <ion-input type="email" required="true" clearInput="true" placeholder="Password" formControlName="password"></ion-input>
+      <ion-input type="email" required="true" clearinput="true" placeholder="Password" formcontrolname="password"></ion-input>
     </ion-item>
     <div class="error">
-          <span *ngIf="password.errors?.required && password.touched">Password is required</span>
-          <span *ngIf="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
+          <span *ngif="password.errors?.required && password.touched">Password is required</span>
+          <span *ngif="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
     </div>
 
 
-    <a expand="block" style="margin-left: 25%; margin-top: 2%;" routerLink="/forgot-password">Forgot Your
+    <a expand="block" style="margin-left: 25%; margin-top: 2%;" routerlink="/forgot-password">Forgot Your
       Password?</a>
       <br>
-    <ion-button (click)="login()">Login</ion-button>
+    <ion-button type="submit" (click)="login()">Login</ion-button>
     <br>
+    <p routerlink="/intro">Back</p>
     <br>
     <br>
     <br>
