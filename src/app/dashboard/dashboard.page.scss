@@ -40,7 +40,60 @@
     box-shadow: none;
 }
 
-ion-card-title {
-    color: black;
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    margin-right: 12px;
+    
 }
 
+.col-left {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.firstLabel {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.secondLabel {
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 4px;
+}
+
+.subLabel {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-left: 2px;
+}
+
+.grid-1 {
+    padding-bottom: 0;
+    padding-top: 18px;
+}
+
+.col-gap-l {
+    padding-left: 2px;
+    padding-right: 0px;
+}
+
+.col-gap-r {
+    padding-right: 2px;
+    padding-left: 0px;
+}
