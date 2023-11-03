@@ -79,9 +79,9 @@ export class LoginPage {
     );
   }
 
-  // forgotPassword() {
-  //   this.router.navigate(['/forgot-password'])
-  // }
+  navToForgotPassword() {
+    this.navCtrl.navigateForward(['login/forgot-password'])
+  }
 
   
 
