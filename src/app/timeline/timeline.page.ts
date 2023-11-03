@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FirestoreService } from '../../services/database';
 import { ModalAddPage } from '../modal/modal-add/modal-add.page';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { OverviewPage } from '../modal/overview/overview.page';
 
 @Component({
@@ -16,7 +16,8 @@ export class TimelinePage implements OnInit {
   constructor(
     private firestoreService: FirestoreService,
     private cdRef: ChangeDetectorRef,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -102,4 +103,8 @@ export class TimelinePage implements OnInit {
 
     await modal.present();
   }
+
+  // public goBack(){
+  //   this.navCtrl.navigateBack(['/dashboard'])
+  // }
 }

@@ -11,13 +11,7 @@ import { Auth } from 'firebase/auth';
 })
 export class Tab1Page {
 
-  constructor(private authService: AuthenticationService, private navCtrl: NavController) { }
-  uid = this.authService.uid;
-
-
-  async logout() {
-    await this.authService.logout();
-    this.navCtrl.navigateBack('/intro');
-  }
+  constructor() { }
+  
 
 }
