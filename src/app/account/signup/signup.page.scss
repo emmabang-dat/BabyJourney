@@ -6,15 +6,22 @@ ion-content {
     background-size: cover;
 } 
 
+
 h1,
 h2,
 h3 {
     color: black;
 }
-
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 .login-box {
     ion-input {
-        width: 70%;
+        width: 80%;
         height: 10%;
         transition: all 0.5s ease-in-out;
     }
@@ -32,11 +39,16 @@ h3 {
         // padding-top: 5px;
         margin: 5%;
     }
+    
+    ion-item:focus-within ion-input::-webkit-input-placeholder {
+        color: transparent;
+    }
+
     ion-button{
         border-radius: 10px;
-        --background: #87CEEB;
+        --background: #55b2d7;
         --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.729);
-        width: 60%;
+        width: 50%;
     }
 
     background-color: whitesmoke;
@@ -51,3 +63,17 @@ h3 {
     border: 1px solid rgba(0, 0, 0, 0.289);
 }
 
+//for links
+a:hover {
+    text-decoration: underline !important;
+}
+
+
+.center-text{
+    text-align: center;
+    margin-bottom: 30vh;
+}
+
+.error{
+    color: crimson;
+}

@@ -104,7 +104,7 @@ export class TimelinePage implements OnInit {
     await modal.present();
   }
 
-  // public goBack(){
-  //   this.navCtrl.navigateBack(['/dashboard'])
-  // }
+  public goBack(){
+    this.navCtrl.navigateBack(['/dashboard'])
+  }
 }

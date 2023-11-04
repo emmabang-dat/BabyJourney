@@ -2,40 +2,73 @@
 
   <h1 style="display: flex; flex-direction: column; align-items: center;
   margin-top: 30vh;">
-  Baby Journey
-  </h1> 
+    Baby Journey
+  </h1>
 
- <div class="login-box">
-  
+  <div class="login-box">
+
     <h2>Sign Up</h2>
     <br>
+    <div class="form" [formGroup]="credentials">
 
-    <ion-item lines="none">
-      <ion-label>
-        <ion-icon name="mail"></ion-icon>
-      </ion-label>
-      <ion-input [(ngModel)]="email" placeholder="Your E-mail"></ion-input>
-    </ion-item>
-    <br>
-    <br>
-    <ion-item lines="none">
-      <ion-label>
-        <ion-icon name="lock-closed"></ion-icon>
-      </ion-label>
-      <ion-input [(ngModel)]="password" placeholder="Your Password"></ion-input>
-    </ion-item>
-    
-    <br>
-    <br>
-    
-    <ion-button (click)="signUp()">Signup</ion-button>
+      <div class="form">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="email" required="true" clearInput="true" formControlName="email"
+            placeholder="Your E-mail"></ion-input>
+        </ion-item>
+        <div class="error">
+          <span *ngIf="email.errors?.email && email.touched">Invalid email</span>
+          <span *ngIf="email.errors?.required && email.touched">Email is required</span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="form">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-icon name="lock-closed"></ion-icon>
+          </ion-label>
+          <ion-input type="password" required="true" clearInput="true" formControlName="password"
+            placeholder="Your Password"></ion-input>
+        </ion-item>
+        <div class="error">
+          <span *ngIf="password.errors?.required && password.touched">Password is required</span>
+          <span *ngIf="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="form">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-icon name="lock-closed"></ion-icon>
+          </ion-label>
+          <ion-input type="password" required="true" clearInput="true" formControlName="rePassword"
+            placeholder="Your Password again"></ion-input>
+        </ion-item>
+        <div class="error">
+          <span *ngIf="password.errors?.required && password.touched">Password is required</span>
+          <span *ngIf="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <ion-button (click)="signup()" [disabled]="!credentials.valid">Signup</ion-button>
+    </div>
     <p routerLink="/intro">Back</p>
     <br>
     <br>
     <br>
     <br>
     <br>
-    
-    
+
+
   </div>
 </ion-content>
