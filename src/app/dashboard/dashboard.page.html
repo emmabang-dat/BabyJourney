@@ -28,7 +28,7 @@
     <ion-row>
       <ion-col class="col-left">
         <!-- Should only be visable, if user is logged in. -->
-        <ion-nav-link style="border-bottom: 1px solid black;" *ngIf="uid" (click)="logout()">Logout</ion-nav-link>
+        <ion-nav-link class="log-out-button" *ngIf="uid" (click)="logout()">Log out<img src="/assets/icon/logout2.svg" style="width: 16px; margin-left: 8px;"></ion-nav-link>
       </ion-col>
     </ion-row>
 
@@ -41,7 +41,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <ion-grid class="grid-scroll">
     <ion-row>
       <ion-col class="col-gap-l">
         <ion-card class="card-1" (click)="openTimeline()">
