@@ -8,14 +8,9 @@ const routes: Routes = [
     path: '',
     component: LoginPage
   },
-  {
-    path: 'forgot-password',
-    loadChildren: () => import('../forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
-  },
   // {
-  //   path: 'signup',
-  //   loadChildren: () => import('../signup/signup-routing.module').then( m => m.SignupPageRoutingModule)
-
+  //   path: 'forgot-password',
+  //   loadChildren: () => import('../forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   // },
 ];
 

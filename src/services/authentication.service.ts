@@ -9,8 +9,7 @@ import {
   signInWithPopup,
   signOut,
 } from '@angular/fire/auth';
-import { collection, addDoc } from 'firebase/firestore';
-import { getFirestore } from '@angular/fire/firestore';
+import { getFirestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +20,9 @@ export class AuthenticationService {
   uid = this.auth.currentUser?.uid;
   
   async signup({
-    name,
     email,
     password,
   }: {
-    name: string;
     email: string;
     password: string;
   }) {
@@ -38,9 +35,8 @@ export class AuthenticationService {
       const user = userCredential.user;
       if (user) {
         const db = getFirestore();
-        await addDoc(collection(db, 'users'), {
+        await setDoc(doc(db, 'users', user.uid),  {
           uid: user.uid,
-          name: name,
           email: email,
         });
       }
