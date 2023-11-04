@@ -1,7 +1,6 @@
 <ion-content [fullscreen]="true">
 
-  <h1 style="display: flex; flex-direction: column; align-items: center;
-  margin-top: 30vh;">
+  <h1 class="heading">
     Baby Journey
   </h1>
 
@@ -32,7 +31,7 @@
             <ion-icon name="lock-closed"></ion-icon>
           </ion-label>
           <ion-input type="password" required="true" clearInput="true" formControlName="password"
-            placeholder="Your Password"></ion-input>
+            placeholder="Your Password" style="color: black;"></ion-input>
         </ion-item>
         <div class="error">
           <span *ngIf="password.errors?.required && password.touched">Password is required</span>

@@ -13,6 +13,7 @@ export class TimelinePage implements OnInit {
   data: any;
   imageUrl: string[] = [];
   lastDoc: any;
+  displayData: any;
   constructor(
     private firestoreService: FirestoreService,
     private cdRef: ChangeDetectorRef,
@@ -24,6 +25,7 @@ export class TimelinePage implements OnInit {
     this.firestoreService.fetchData().then((data) => {
       if (data) {
         this.data = data;
+        this.displayData = [...this.data].reverse();
         this.data.forEach((item: any) => {
           this.imageUrl.push(item['PhotoURL']);
         });
@@ -37,6 +39,7 @@ export class TimelinePage implements OnInit {
 
     this.firestoreService.fetchDataRealtime((data) => {
       this.data = data;
+      this.displayData = [...this.data].reverse();
       this.cdRef.detectChanges();
     });
   }
@@ -102,9 +105,5 @@ export class TimelinePage implements OnInit {
     });
 
     await modal.present();
-  }
-
-  public goBack(){
-    this.navCtrl.navigateBack(['/dashboard'])
   }
 }

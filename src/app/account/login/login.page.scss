@@ -1,11 +1,26 @@
 ion-content {
     --background: none;
-    background-image: url('../../../assets/img/babyJourney.png');
-    background-position: top center;
+    background-image: url("../../../assets/img/babyJourney.png");
+    background-position: top 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-} 
+    background-size: auto;
+  }
 
+  .heading {
+    width: 329px;
+    height: 55px;
+    flex-shrink: 0;
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5rem;
+  }
 
 h1,
 h2,
@@ -46,7 +61,7 @@ form{
 
     ion-button{
         border-radius: 10px;
-        --background: #55b2d7;
+        --background: #87ceeb;
         --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.729);
         width: 50%;
     }
