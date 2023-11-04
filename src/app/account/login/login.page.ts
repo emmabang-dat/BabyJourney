@@ -14,8 +14,8 @@ import { AuthenticationService } from 'src/services/authentication.service';
 
 export class LoginPage {
   credentials: FormGroup | any;
-  email!: string;
-  password!: string;
+  // email!: string;
+  // password!: string;
   message!: string;
 
   constructor(
@@ -31,13 +31,13 @@ export class LoginPage {
     ngOnInit() {
       this.validators();
      }
-    //  get email() {
-    //   return this.credentials?.get('email');
-    // }
+     get email() {
+      return this.credentials?.get('email');
+    }
   
-    // get password() {
-    //   return this.credentials?.get('password');
-    // }
+    get password() {
+      return this.credentials?.get('password');
+    }
   
     validators() {
       this.credentials = this.fb.group({
@@ -63,8 +63,8 @@ export class LoginPage {
       async (res: any) => {
         await loading.dismiss();
         // this.router.navigateByUrl('tabs', { replaceUrl: true });
-        this.router.navigateByUrl('tabs/tab1');
-        this.presentToast('');
+        this.router.navigateByUrl('tabs/dashboard');
+        this.presentToast('Succesfully logged in');
       },
       async (err: any) => {
         await loading.dismiss();
@@ -79,8 +79,10 @@ export class LoginPage {
     );
   }
 
+
+
   navToForgotPassword() {
-    this.navCtrl.navigateForward(['login/forgot-password'])
+    this.navCtrl.navigateForward(['/forgot-password'])
   }
 
   

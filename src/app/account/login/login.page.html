@@ -35,12 +35,12 @@
           <span *ngif="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
     </div> -->
 
-    
+    <form (ngSubmit)="login()" [formGroup]="credentials"> 
     <ion-item lines="none">
       <ion-label>
         <ion-icon name="mail"></ion-icon>
       </ion-label>
-      <ion-input [(ngModel)]="email" placeholder="Your E-mail"></ion-input>
+      <ion-input  formControlName="email" placeholder="Your E-mail"></ion-input>
     </ion-item>
     <br>
     <br>
@@ -48,14 +48,15 @@
       <ion-label>
         <ion-icon name="lock-closed"></ion-icon>
       </ion-label>
-      <ion-input [(ngModel)]="password" placeholder="Your Password"></ion-input>
+      <ion-input  formControlName="password" placeholder="Your Password"></ion-input>
     </ion-item>
 
 
     <a expand="block" style="margin-left: 25%; margin-top: 2%;" (click)="navToForgotPassword()">Forgot Your
       Password?</a>
       <br>
-    <ion-button type="submit" (click)="login()">Login</ion-button>
+    <ion-button type="submit" (click)="login()" [disabled]="!credentials.valid">Login</ion-button>
+  </form>
     <p routerLink="/intro">Back</p>
     <br>
     <br>

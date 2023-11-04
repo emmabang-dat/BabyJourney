@@ -20,18 +20,12 @@ export class DashboardPage implements OnInit {
 
   uid = this.authService.uid;
     openTimeline(){
-      this.router.navigate(['/timeline'])
+      this.router.navigate(['tabs/timeline'])
     }
     
     openModal(){
       this.router.navigate(['/modal-add'])
     }
-
-    async logout() {
-      await this.authService.logout();
-      this.navCtrl.navigateBack('/intro');
-    }
-    
     
   ngOnInit() {
   }

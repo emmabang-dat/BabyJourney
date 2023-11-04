@@ -36,6 +36,10 @@ export class ForgotPasswordPage implements OnInit {
     });
   }
 
+  goBack() {
+    this.navCtrl.navigateBack(['/intro'])
+  }
+
   async forgotPassword() {
     const loading = await this.loadingController.create();
     await loading.present();

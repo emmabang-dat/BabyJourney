@@ -70,14 +70,15 @@
     display: flex;
     align-items: center;
     margin-left: 12px;
+    padding-left: 0;
 }
 
 .firstLabel {
     color: #000;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
 }
 
@@ -94,8 +95,9 @@
     display: flex;
     align-items: center;
     margin-left: 12px;
+    font-weight: 500;
     font-size: 14px;
-    padding-bottom: 6px;
+    padding-bottom: 0px;
     padding-left: 2px;
 }
 
@@ -112,4 +114,9 @@
 .col-gap-r {
     padding-right: 2px;
     padding-left: 0px;
+}
+
+.grid-scroll {
+    overflow-y: auto;
+    height: 500px;
 }
