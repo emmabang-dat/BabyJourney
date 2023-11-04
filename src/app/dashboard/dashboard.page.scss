@@ -116,27 +116,7 @@
     padding-left: 0px;
 }
 
-.log-out-button {
-    width: 98px;
-    height: 52px;
-    border-radius:8px;
-    background-color: #87CEEB;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 8px;
-    color: white;
-}
-
-.log-out-icon {
-    width: 16px;
-    height: 16px;
-    margin-left: 12px;
-    color: white;
-}
-
 .grid-scroll {
     overflow-y: auto;
+    height: 500px;
 }

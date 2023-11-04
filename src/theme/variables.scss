@@ -244,3 +244,17 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+
+::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: hidden;
+  overflow: hidden;
+}
+
+ion-content {
+  overflow: hidden;
+  --overflow: hidden;
+}
+
+.scroll-content {
+  overflow: hidden;
+}

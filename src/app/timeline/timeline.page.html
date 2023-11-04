@@ -1,7 +1,4 @@
 <ion-content [fullscreen]="true">
-  <div (click)="goBack()">
-    <ion-icon style="font-size:xx-large;" name="arrow-back-outline"></ion-icon>
-  </div>
 
   <div class="page-container">
     <div class="header">
@@ -15,7 +12,7 @@
       <div class="scroll-container" (scroll)="onScroll($event)">
         <div
           class="timeline-item"
-          *ngFor="let item of data.slice().reverse(); let i = index"
+          *ngFor="let item of displayData; let i = index"
           [style.bottom.px]="i * -120"
           [ngClass]="{'reverse-layout': i % 2 === 1}"
         >

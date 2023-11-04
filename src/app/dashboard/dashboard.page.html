@@ -1,42 +1,41 @@
 <ion-content [fullscreen]="true">
-
-  <ion-grid style="padding-top: 28px; padding-bottom: 14px;">
+  <ion-grid style="padding-top: 28px; padding-bottom: 14px">
     <ion-row>
       <ion-col class="col-left">
         <h1>Welcome</h1>
       </ion-col>
 
       <ion-col class="col-right">
-        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="48" height="48" rx="24" fill="#F3C41F" />
-          <path fill-rule="evenodd" clip-rule="evenodd"
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
             d="M29.6333 18.4661C29.6333 15.5206 27.2455 13.1328 24.3 13.1328C21.3544 13.1328 18.9666 15.5206 18.9666 18.4661C18.9666 21.4117 21.3544 23.7995 24.3 23.7995H23.2333C17.9314 23.7995 13.6333 28.0975 13.6333 33.3995C13.6333 33.9886 14.1109 34.4661 14.7 34.4661H33.9C34.4891 34.4661 34.9666 33.9886 34.9666 33.3995C34.9666 28.0975 30.6686 23.7995 25.3666 23.7995H24.3C25.7145 23.7995 27.071 23.2376 28.0712 22.2374C29.0714 21.2372 29.6333 19.8806 29.6333 18.4661ZM23.2333 25.9328C19.5209 25.9319 16.3716 28.6585 15.8413 32.3328H32.7586C32.2283 28.6585 29.079 25.9319 25.3666 25.9328H23.2333ZM21.1 18.4661C21.1 20.2335 22.5327 21.6661 24.3 21.6661C25.1487 21.6661 25.9626 21.329 26.5627 20.7289C27.1628 20.1288 27.5 19.3148 27.5 18.4661C27.5 16.6988 26.0673 15.2661 24.3 15.2661C22.5327 15.2661 21.1 16.6988 21.1 18.4661Z"
-            fill="white" />
+            fill="white"
+          />
         </svg>
-        <p class="secondLabel">Barn 1</p>
-
+        <p class="secondLabel">Child 1</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="col-left">
         <ion-label>
-          <h1 *ngIf="username" class="firstLabel"> {{username}}</h1>
+          <h1 *ngIf="username" class="firstLabel">{{username}}</h1>
         </ion-label>
-
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col class="col-left">
-        <!-- Should only be visable, if user is logged in. -->
-        <ion-nav-link class="log-out-button" *ngIf="uid" (click)="logout()">Log out<img src="/assets/icon/logout2.svg" style="width: 16px; margin-left: 8px;"></ion-nav-link>
-      </ion-col>
-    </ion-row>
-
   </ion-grid>
 
   <ion-grid class="grid-1">
     <ion-row>
-      <ion-col class="subLabel">Hvad har du lyst til i dag?</ion-col>
+      <ion-col class="subLabel">What do you feel like doing today?</ion-col>
       <ion-col></ion-col>
     </ion-row>
   </ion-grid>
@@ -46,37 +45,46 @@
       <ion-col class="col-gap-l">
         <ion-card class="card-1" (click)="openTimeline()">
           <ion-card-header>
-            <img src="/assets/icon/timeline-2.svg" alt="Costum icon" style="width: 34px">
-            <ion-card-title>Tidslinje</ion-card-title>
+            <img
+              src="/assets/icon/timeline-2.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <ion-card-title>Timeline</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            Se, redigér eller tilføj til dit barns tidslinje.
-
+            View, edit or add to your child's timeline.
           </ion-card-content>
         </ion-card>
 
         <ion-card class="card-3" (click)="openModal()">
           <ion-card-header>
-            <img src="/assets/icon/camera.svg" alt="Costum icon" style="width: 34px">
-            <ion-card-title>Kamera</ion-card-title>
+            <img
+              src="/assets/icon/camera.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <ion-card-title>Camera</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            Tag billeder med
-            dit kamera her.
+            Take pictures with your camera here.
           </ion-card-content>
         </ion-card>
 
         <ion-card class="card-5">
           <ion-card-header>
-            <img src="/assets/icon/share-picture.svg" alt="Costum icon" style="width: 34px;">
-            <ion-card-title>Del minderne</ion-card-title>
+            <img
+              src="/assets/icon/share-picture.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <ion-card-title>Share the memories</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            Del dine barns minder
-            med folk du holder af.
+            Share your child's memories with people you care about.
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -84,27 +92,39 @@
       <ion-col class="col-gap-r">
         <ion-card class="card-2" (click)="openTimeline()">
           <ion-card-header>
-            <img src="/assets/icon/images.svg" alt="Costum icon" style="width: 34px">
-            <ion-card-title>Billeder</ion-card-title>
+            <img
+              src="/assets/icon/images.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <ion-card-title>Pictures</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            Se dit barns billeder her.
+            View your child's pictures here.
           </ion-card-content>
         </ion-card>
 
         <ion-card class="card-4">
           <ion-card-header>
-            <img src="/assets/icon/milestone.svg" alt="Costum icon" style="width: 34px">
-            <ion-card-title>Milepæle</ion-card-title>
+            <img
+              src="/assets/icon/milestone.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <img
+              src="/assets/icon/milestone.svg"
+              alt="Custom icon"
+              style="width: 34px"
+            />
+            <ion-card-title>Milestones</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            Se dit barns milepæle her.
+            View your child's milestones here.
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
-
-</ion-content>
+  </ion-grid></ion-content
+>

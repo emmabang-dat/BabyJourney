@@ -46,10 +46,6 @@ const routes: Routes = [
     loadChildren: () => import('./timeline/timeline.module').then( m => m.TimelinePageModule)
   },
   {
-    path: 'modal-overview',
-    loadChildren: () => import('./modal/modal-overview/modal-overview.module').then( m => m.ModalOverviewPageModule)
-  },
-  {
     path: 'modal-add',
     loadChildren: () => import('./modal/modal-add/modal-add.module').then( m => m.ModalAddPageModule)
   },

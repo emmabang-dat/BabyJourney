@@ -1,11 +1,5 @@
 <ion-tabs>
-  
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="intro" href="../intro/intro">
-      <ion-icon aria-hidden="true" name="person-circle-outline"></ion-icon>
-      <ion-label>Account</ion-label>
-    </ion-tab-button>
-
     <ion-tab-button tab="dashboard" href="/dashboard/dashboard">
       <ion-icon aria-hidden="true" name="grid" color="dark"></ion-icon>
       <ion-label color="dark">Dashboard</ion-label>
@@ -16,11 +10,9 @@
       <ion-label>Timeline</ion-label>
     </ion-tab-button>
 
-    <!-- <ion-tab-button tab="tab3" href="/tabs/tab3">
-      <ion-icon aria-hidden="true" name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
-    </ion-tab-button> -->
-
+    <ion-tab-button (click)="logout()">
+      <ion-icon aria-hidden="true" name="log-out-outline"></ion-icon>
+      <ion-label>Log Out</ion-label>
+    </ion-tab-button>
   </ion-tab-bar>
-
 </ion-tabs>
