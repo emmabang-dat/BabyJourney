@@ -8,13 +8,17 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'intro',
+        loadChildren: () => import('../account/intro/intro.module').then(m => m.IntroPageModule)
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
-      {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
+      // {
+      //   path: 'tab1',
+      //   loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+      // },
       {
         path: 'timeline',
         loadChildren: () => import('../timeline/timeline.module').then(m => m.TimelinePageModule)
@@ -25,22 +29,22 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
+        loadChildren: () => import('../account/login/login.module').then(m => m.LoginPageModule)
       },
       {
         path: 'signup',
-        loadChildren: () => import('../signup/signup.module').then(m => m.SignupPageModule)
+        loadChildren: () => import('../account/signup/signup.module').then(m => m.SignupPageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/dashboard',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/dashboard',
     pathMatch: 'full'
   }
 ];

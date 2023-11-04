@@ -29,12 +29,12 @@
     "@capacitor/core": "5.5.0",
     "@capacitor/haptics": "5.0.6",
     "@capacitor/keyboard": "5.0.6",
+    "@capacitor/preferences": "^5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
     "@ionic/pwa-elements": "^3.2.2",
     "firebase": "^10.5.0",
     "ionicons": "^7.0.0",
-    "pickadate": "^5.0.0-alpha.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

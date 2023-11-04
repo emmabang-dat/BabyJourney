@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/services/authentication.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { Auth } from 'firebase/auth';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +11,7 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor() { }
+  
 
 }

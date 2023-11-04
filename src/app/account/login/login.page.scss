@@ -1,6 +1,6 @@
 ion-content {
     --background: none;
-    background-image: url('../../assets/img/babyJourney.png');
+    background-image: url('../../../assets/img/babyJourney.png');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,6 +32,17 @@ h3 {
         // padding-top: 5px;
         margin: 5%;
     }
+    
+    ion-item:focus-within ion-input::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    ion-button{
+        border-radius: 10px;
+        --background: #87CEEB;
+        --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.729);
+        width: 60%;
+    }
 
     background-color: whitesmoke;
     border-radius: 30px;
@@ -45,3 +56,17 @@ h3 {
     border: 1px solid rgba(0, 0, 0, 0.289);
 }
 
+//for links
+a:hover {
+    text-decoration: underline !important;
+}
+
+
+.center-text{
+    text-align: center;
+    margin-bottom: 30vh;
+}
+
+.error{
+    color: crimson;
+}

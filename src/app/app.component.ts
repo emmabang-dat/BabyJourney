@@ -7,6 +7,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   constructor() {
     defineCustomElements(window);
   }

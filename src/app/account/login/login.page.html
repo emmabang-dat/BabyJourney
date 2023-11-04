@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+
+  <h1 style="display: flex; flex-direction: column; align-items: center;
+  margin-top: 30vh;">
+    Baby Journey
+  </h1>
+
+  <div class="login-box">
+
+    <h2>Login</h2>
+    <br>
+
+    <!-- <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="email" required="true" clearInput="true" placeholder="E-mail" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="error">
+      <span *ngif="email.errors?.email && email.touched">Invalid email</span>
+      <span *ngif="email.errors?.required && email.touched">Email is required</span>
+    </div>
+
+    <br>
+    <br>
+
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="lock-closed"></ion-icon>
+      </ion-label>
+      <ion-input type="password" required="true" clearInput="true" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="error">
+          <span *ngif="password.errors?.required && password.touched">Password is required</span>
+          <span *ngif="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
+    </div> -->
+
+    
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input [(ngModel)]="email" placeholder="Your E-mail"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="lock-closed"></ion-icon>
+      </ion-label>
+      <ion-input [(ngModel)]="password" placeholder="Your Password"></ion-input>
+    </ion-item>
+
+
+    <a expand="block" style="margin-left: 25%; margin-top: 2%;" (click)="navToForgotPassword()">Forgot Your
+      Password?</a>
+      <br>
+    <ion-button type="submit" (click)="login()">Login</ion-button>
+    <p routerLink="/intro">Back</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+</ion-content>
