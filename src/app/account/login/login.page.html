@@ -34,21 +34,35 @@
           <span *ngif="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
     </div> -->
 
-    <form (ngSubmit)="login()" [formGroup]="credentials"> 
+    <form class="form" (ngSubmit)="login()" [formGroup]="credentials">
+      <div>
     <ion-item lines="none">
       <ion-label>
         <ion-icon name="mail"></ion-icon>
       </ion-label>
-      <ion-input  formControlName="email" placeholder="Your E-mail"></ion-input>
+      <ion-input type="email" required="true" clearInput="true" formControlName="email"
+      placeholder="Your E-mail"></ion-input>
     </ion-item>
+    <div class="error">
+      <span *ngIf="email.errors?.email && email.touched">Invalid email</span>
+      <span *ngIf="email.errors?.required && email.touched">Email is required</span>
+    </div>
+  </div>
     <br>
     <br>
+    <div>
     <ion-item lines="none">
       <ion-label>
         <ion-icon name="lock-closed"></ion-icon>
       </ion-label>
-      <ion-input  formControlName="password" placeholder="Your Password"></ion-input>
+      <ion-input  type="password" required="true" clearInput="true" formControlName="password"
+      placeholder="Your Password"></ion-input>
     </ion-item>
+    <div class="error">
+      <span *ngIf="password.errors?.required && password.touched">Password is required</span>
+      <span *ngIf="password.errors?.minlength && password.touched">Password needs to be 6 characters</span>
+    </div>
+  </div>
 
 
     <a expand="block" style="margin-left: 25%; margin-top: 2%;" (click)="navToForgotPassword()">Forgot Your
